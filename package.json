@@ -1,0 +1,20 @@
+{
+  "name": "bagel-link",
+  "version": "0.1.0",
+  "description": "Show me the nearest bagel place to my location.",
+  "main": "web.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ardouglass/bagel-link.git"
+  },
+  "author": "Andrew Douglass",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ardouglass/bagel-link/issues"
+  },
+  "dependencies": {
+    "yelp": "~0.1.1",
+    "express": "~4.0.0",
+    "logfmt": "~1.1.2"
+  }
+}
