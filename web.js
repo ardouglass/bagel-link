@@ -31,13 +31,19 @@ app.get('/locate', function(req, res) {
 
   yelp.search(gimme_bagels, function(error, data) {
     
-    var response = {
-      name: data.businesses[0].name,
-      url: data.businesses[0].url,
-      loc: data.businesses[0].location.address[0],
-      lat: data.region.center.latitude,
-      lon: data.region.center.longitude
-    };
+    var response = {};
+
+    if(data.total) {
+      response.located = true;
+      response.name = data.businesses[0].name;
+      response.url = data.businesses[0].url;
+      response.loc = data.businesses[0].location.address[0];
+      response.lat = data.region.center.latitude;
+      response.lon = data.region.center.longitude;
+    }
+    else {
+      response.located = false;
+    }
 
     res.send(response);
   });
