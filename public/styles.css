@@ -1,0 +1,27 @@
+#map {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+#content {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+#logo {
+  margin-top: 60px;
+}
+
+#location_gps {
+  margin-top: 60px;
+}

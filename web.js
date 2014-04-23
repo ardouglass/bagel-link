@@ -1,8 +1,14 @@
+process.env.consumer_key = "EQgLIoqmYDU_jMS5qpMZgA";
+process.env.consumer_secret = "iHg07GYYpLTtytDbC1mMvnTJKoc";
+process.env.token = "zHy2TLx_oUi8KkFwiIaC-gL50mtFLNqx";
+process.env.token_secret = "9m1JW1EZfbsqkk4fP-bol4eo9bc";
+
 var express = require("express");
 var logfmt = require("logfmt");
 var app = express();
 
 app.use(logfmt.requestLogger());
+app.use(express.static(__dirname + '/public'));
 
 app.get('/locate', function(req, res) {
   
@@ -23,9 +29,10 @@ app.get('/locate', function(req, res) {
 
   var gimme_bagels = {
     term: "food", 
-    limit: 1, 
+    limit: 1,
     sort: 1, 
-    category_filter: "bagels", 
+    category_filter: "bagels",
+    radius_filter: 10000,
     ll: lat + "," + lon
   };
 
@@ -45,6 +52,7 @@ app.get('/locate', function(req, res) {
       response.located = false;
     }
 
+    console.log(data);
     res.send(response);
   });
 });
