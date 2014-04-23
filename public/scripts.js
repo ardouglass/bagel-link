@@ -28,12 +28,10 @@ $(document).ready(function(){
               flat: position.coords.latitude,
               flon: position.coords.longitude,
               tlat: data.lat,
-              tlon: data.lon,
-              v: "foot",
-              format: "geojson"
+              tlon: data.lon
             };
 
-            $.getJSON('http://www.yournavigation.org/api/1.0/gosmore.php', directions, function(route) {
+            $.getJSON('/route', directions, function(route) {
               console.log(route);
             });
           }

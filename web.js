@@ -7,6 +7,30 @@ var app = express();
 app.use(logfmt.requestLogger());
 app.use(express.static(__dirname + '/public'));
 
+app.get('/route', function(req, res) {
+  
+  var options = {
+    url: 'http://www.yournavigation.org/api/1.0/gosmore.php',
+    qs: {
+      flat: req.query.flat,
+      flon: req.query.flon,
+      tlat: req.query.tlat,
+      tlon: req.query.tlon,
+      v: "foot",
+      format: "geojson"
+    },
+    headers: {
+      "X-Yours-client": "www.bagel.link"
+    }
+  };
+
+  request(options, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+     res.send(body);
+    }
+  })
+});
+
 app.get('/locate', function(req, res) {
   
   var yelp = require("yelp").createClient({
@@ -49,7 +73,6 @@ app.get('/locate', function(req, res) {
       response.located = false;
     }
 
-    console.log(data);
     res.send(response);
   });
 });
