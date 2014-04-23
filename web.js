@@ -1,10 +1,7 @@
-process.env.consumer_key = "EQgLIoqmYDU_jMS5qpMZgA";
-process.env.consumer_secret = "iHg07GYYpLTtytDbC1mMvnTJKoc";
-process.env.token = "zHy2TLx_oUi8KkFwiIaC-gL50mtFLNqx";
-process.env.token_secret = "9m1JW1EZfbsqkk4fP-bol4eo9bc";
-
 var express = require("express");
 var logfmt = require("logfmt");
+var request = require('request');
+
 var app = express();
 
 app.use(logfmt.requestLogger());

@@ -10,7 +10,7 @@ $(document).ready(function(){
   map.scrollWheelZoom.disable();
   if (map.tap) map.tap.disable();
 
-  $("#location_gps").click(function(){
+  $("#location").click(function(){
     if(!navigator.geolocation) {
       map.setView([29, -95], 8);
     } 
@@ -20,7 +20,22 @@ $(document).ready(function(){
           
           if(data.located) {
             map.setView([data.lat, data.lon], 15);
-            console.log(data);
+            
+            $('#logo').hide();
+            $('#location').hide();
+
+            var directions = {
+              flat: position.coords.latitude,
+              flon: position.coords.longitude,
+              tlat: data.lat,
+              tlon: data.lon,
+              v: "foot",
+              format: "geojson"
+            };
+
+            $.getJSON('http://www.yournavigation.org/api/1.0/gosmore.php', directions, function(route) {
+              console.log(route);
+            });
           }
 
         });

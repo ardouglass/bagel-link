@@ -22,6 +22,11 @@
   margin-top: 60px;
 }
 
-#location_gps {
+#location {
   margin-top: 60px;
+  text-align: center;
+}
+
+.img-responsive {
+  display: inline;
 }
