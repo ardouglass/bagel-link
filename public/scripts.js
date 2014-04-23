@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  var map = L.mapbox.map('map', 'ardouglass.i25bo5jg', {zoomControl: false});
+  var map = L.mapbox.map('map', 'ardouglass.i25bo5jg', {zoomControl: false, tileLayer: {detectRetina: true}});
   map.setView([40.7590615,-73.969231], 12);
 
   //Disable controls
